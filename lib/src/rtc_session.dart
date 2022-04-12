@@ -652,7 +652,7 @@ class RTCSession extends EventManager implements Owner {
 
     logger.debug('emit "sdp"');
     emit(EventSdp(originator: 'remote', type: 'offer', sdp: request.body));
-
+    print('RTC SESSION: ${request.body}');
     RTCSessionDescription offer = RTCSessionDescription(request.body, 'offer');
     try {
       await _connection!.setRemoteDescription(offer);
